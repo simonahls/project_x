@@ -1,3 +1,0 @@
-/mnt/k/Min enhet/Programming/dev/project_x/file_io/build/CMakeFiles/fileio.dir
-/mnt/k/Min enhet/Programming/dev/project_x/file_io/build/CMakeFiles/edit_cache.dir
-/mnt/k/Min enhet/Programming/dev/project_x/file_io/build/CMakeFiles/rebuild_cache.dir
