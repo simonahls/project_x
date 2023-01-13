@@ -13,9 +13,16 @@ public:
 
         // open the file with ifstream.
         std::ifstream file(fileName);
+        if (file.is_open())
+        {
+            std::getline(file, line);
+            // Get the line from the file. store it in line.
+        }
+        else
+        {
+            std::cout << "Error opening file";
+        }
 
-        // Get the line from the file. store it in line.
-        std::getline(file, line);
         return line;
     }
 
@@ -28,10 +35,18 @@ public:
         // create the var line.
         std::ifstream file(fileName);
         // open the file
-        while (std::getline(file, line))
+        if (file.is_open())
         {
-            lines.push_back(line);
+            while (std::getline(file, line))
+            {
+                lines.push_back(line);
+            }
         }
+        else
+        {
+            std::cout << "Error opening file";
+        }
+
         // while getline is true then push line to the vector.
         return lines;
     }
