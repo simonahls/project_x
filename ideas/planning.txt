@@ -1,0 +1,12 @@
+First sprint: Fileio component.
+
+early mock - completed
+Add .gitignore file
+add destructor to class
+check the open close logic for files
+build them as libiary
+add echo functionality
+
+Secound sprint: Can messages
+
+
