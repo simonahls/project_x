@@ -1,10 +1,14 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <iostream>
 
 class FileIO
 {
+
 public:
+    FileIO() {}
+
     // Read a single line from a file and return it as a string
     std::string readLine(const std::string &fileName)
     {
