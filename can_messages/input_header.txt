@@ -1,31 +1,29 @@
-#ifndef HEADER_MIN_SIGNALS_H
-#define HEADER_MIN_SIGNALS_H
-class CAN_min_signals {
+#ifndef HEADER_FILE_NAME_H
+#define HEADER_FILE_NAME_H
+class CAN_file_name {
  public:
- CAN_min_signals();
+ CAN_file_name();
  /*
- get the ambient temperature
+ get sub_value_0_3
  */
- std::string get_temperature();
+ std::string get_sub_value_0_0();
  /*
- set the ambient temperature
+ set sub_value_0_3
  */
- std::string set_temperature(float newValue);
+ std::string set_sub_value_0_0(sub_value_0_1 newValue);
  /*
- get the ambient humidity percentage
+ get sub_value_1_3
  */
  std::string get_humidity();
- 
- // continued on the next page
- *
- set the ambient humidity percentage
+ /*
+ set sub_value_1_3
  */
- std::string set_humidity(uint8_t newValue);
+ std::string set_sub_value_1_0(sub_value_1_1 newValue);
  private:
- uint8_t m_startMsgId;
- uint8_t m_temperatureGetMsgId;
- uint8_t m_temperatureSetMsgId;
- uint8_t m_humidityGetMsgId;
- uint8_t m_humiditySetMsgId;
+ sub_value_1_1 m_startMsgId;
+ sub_value_1_1 m_sub_value_0_0GetMsgId;
+ sub_value_1_1 m_sub_value_0_0SetMsgId;
+ sub_value_1_1 m_sub_value_1_0GetMsgId;
+ sub_value_1_1 m_sub_value_1_0SetMsgId;
 };
-#endif //HEADER_MIN_SIGNALS_H
+#endif //HEADER_FILE_NAME_H
