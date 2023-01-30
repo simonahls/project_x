@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 # we can have variables here also!
 set(source_files
- app/src/main.cpp
+ app/src/fileio.cpp
 )
 # and we tell to CMake to build executable file:
 
