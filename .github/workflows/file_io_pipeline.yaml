@@ -26,6 +26,7 @@ jobs:
       - name: build the code  
         run: |
           cd file_io
+          ls -all
       - name: run tests
         run: ./build/lib_ut_tests
 
