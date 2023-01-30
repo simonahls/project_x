@@ -27,7 +27,7 @@ def function_write_source_file():
     replacement_array_values = []
     replacement_array_names = []
 
-    # for loop to store the values from dict in a array.
+    # for loop to store the values from dict(list signals) in an array.
     for signal in signals:
         replacement_array_values.extend(
             [signal['name'], signal['type'], str(signal['length']), signal['comment']])
@@ -44,6 +44,9 @@ def function_write_source_file():
 
     # i want to replace all the file_name with min_signals
     input_data = input_data.replace("file_name", FILE_NAME)
+
+    # i want to replace the id value with main_key_value_0
+    input_data = input_data.replace("main_key_value_0", json_dict["id"])
 
     if not os.path.exists("output/src"):
         os.makedirs("output/src")
