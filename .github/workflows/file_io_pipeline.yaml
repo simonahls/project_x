@@ -30,7 +30,9 @@ jobs:
           mkdir build
           ls -all
           pwd
-          cmake .
+          cat CMakeLists.txt
+          cd build
+          cmake ../file_io
           cmake --build .
       - name: run tests
         run: ./build/lib_ut_tests
