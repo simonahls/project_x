@@ -27,10 +27,10 @@ jobs:
         run: |
           cd file_io
           ls -all
-          mkdir build 
-          cd build
+          mkdir build
           ls -all
-          cmake ..
+          pwd
+          cmake .
           cmake --build .
       - name: run tests
         run: ./build/lib_ut_tests
