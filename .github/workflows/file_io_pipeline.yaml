@@ -27,7 +27,7 @@ jobs:
         run: |
           mkdir build 
           cd build
-          cmake ../file_io
+          cmake ..
           cmake --build .
       - name: run tests
         run: ./build/lib_ut_tests
