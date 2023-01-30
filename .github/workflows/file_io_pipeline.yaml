@@ -25,8 +25,9 @@ jobs:
         run: sudo apt-get install -y cmake build-essential
       - name: build the code  
         run: |
-          mkdir file_io/build 
-          cd file_io/build
+          cd file_io
+          mkdir build 
+          cd build
           cmake ../file_io
           cmake --build .
       - name: run tests
