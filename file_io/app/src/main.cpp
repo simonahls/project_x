@@ -1,6 +1,5 @@
 #include <iostream>
-#include "FileIO.h"
-//
+#include "../../lib/include/FileIO.h"
 
 int main(void)
 
