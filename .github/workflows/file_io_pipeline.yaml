@@ -25,19 +25,9 @@ jobs:
         run: sudo apt-get install -y cmake build-essential
       - name: build the code  
         run: |
-          cd file_io
-          ls -all
           mkdir build
-          ls -all
-          pwd
-          cat CMakeLists.txt
           cd build
           cmake ../file_io
           cmake --build .
       - name: run tests
         run: ./build/lib_ut_tests
-
-        #  mkdir build 
-        #  cd build
-        #  cmake ../file_io
-        #  cmake --build .
