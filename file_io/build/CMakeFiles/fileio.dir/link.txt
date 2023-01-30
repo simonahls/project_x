@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/fileio.dir/main.cpp.o -o fileio 
