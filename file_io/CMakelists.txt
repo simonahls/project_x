@@ -2,6 +2,10 @@
 
 cmake_minimum_required(VERSION 3.10)
 
+project(file_io LANGUAGES CXX)
+# let's set standard used to C++17
+set(CMAKE_CXX_STANDARD 17)
+
 include_directories(lib/include)
 
 set(SourcesLib lib/src/file_io.cpp)
@@ -9,16 +13,11 @@ set(SourcesApp app/src/main.cpp)
 
 add_library(file_io_lib ${SourcesLib})
 
-add_executable(fileio ${SourcesApp})
+add_executable(file_io ${SourcesApp})
 
 target_link_libraries(fileio file_io_lib)
 
 #more information might be found: https://cmake.org/cmake/help/latest/command/project.html#command:project
-
-project(FileIO LANGUAGES CXX)
-
-# let's set standard used to C++17
-set(CMAKE_CXX_STANDARD 17)
 
 
 #Google Test
