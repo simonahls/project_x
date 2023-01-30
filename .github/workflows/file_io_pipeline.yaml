@@ -31,4 +31,3 @@ jobs:
           cmake --build .
       - name: run tests
         run: ./build/lib_ut_tests
-        run: echo "testing"
