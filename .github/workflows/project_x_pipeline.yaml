@@ -26,7 +26,7 @@ jobs:
         run: |
           tree .
       - name: build the code
-        run:  
+        run: |
           mkdir build
           cd build
           cmake ..
