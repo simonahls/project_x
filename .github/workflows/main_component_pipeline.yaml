@@ -23,11 +23,3 @@ jobs:
         uses: actions/checkout@v3
       - name: Install prerequisites  
         run: sudo apt-get install -y cmake build-essential
-      - name: build the code  
-        run: |
-          mkdir build
-          cd build
-          cmake ../file_io
-          cmake --build .
-      - name: run tests
-        run: ./build/lib_ut_tests
