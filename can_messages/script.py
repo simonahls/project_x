@@ -51,7 +51,7 @@ def function_write_source_file():
     if not os.path.exists("output/src"):
         os.makedirs("output/src")
 
-    with open("output/src/{}.cpp".format(FILE_NAME), "w") as output_file:
+    with open("output/src/CAN_{}.cpp".format(FILE_NAME), "w") as output_file:
         output_file.write(input_data)
 # function to write the source file.
 
@@ -85,7 +85,7 @@ def function_write_header_file():
 
     if not os.path.exists("output/include/can_messages"):
         os.makedirs("output/include/can_messages")
-    with open("output/include/can_messages/{}.h".format(FILE_NAME), "w") as output_file:
+    with open("output/include/can_messages/CAN_{}.h".format(FILE_NAME), "w") as output_file:
         output_file.write(input_data)
 # funciton to write the header file.
 

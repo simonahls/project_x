@@ -1,4 +1,4 @@
-name: Build and Test "can_messages" Component
+name: Build and Test "main_component" Component
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake ../can_messages
+          cmake ../file_io
           cmake --build .
       - name: run tests
         run: ./build/lib_ut_tests

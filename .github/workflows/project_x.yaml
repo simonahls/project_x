@@ -1,4 +1,4 @@
-name: Build and Test "can_messages" Component
+name: "build and run the project_x"
 
 on:
   push:
@@ -13,21 +13,23 @@ on:
       - master
       - main
       - develop
-
-jobs:
+      jobs:
   build_and_test:
-    name: Build the source code and run Tests(GoogleTest)
+    name: Build the project_x code and run the code
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code 
         uses: actions/checkout@v3
       - name: Install prerequisites  
-        run: sudo apt-get install -y cmake build-essential
-      - name: build the code  
+        run: sudo apt-get install -y python3 python3-pip cmake build-essential tree
+      - name: visual code check 
         run: |
+          tree .
+      - name: build the code
+        run:  
           mkdir build
           cd build
-          cmake ../can_messages
+          cmake ..
           cmake --build .
-      - name: run tests
-        run: ./build/lib_ut_tests
+      - name: notify user
+        run: echo "Success!"
