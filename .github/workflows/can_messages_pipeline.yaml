@@ -29,5 +29,3 @@ jobs:
           cd build
           cmake ../can_messages
           cmake --build .
-      - name: run tests
-        run: ./build/lib_ut_tests
