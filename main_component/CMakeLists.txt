@@ -1,10 +1,11 @@
 set(SOURCES src/main.cpp)
 
-#   include_directories(${CAN_INCLUDE_DIR})
-#   include_directories(${FILE_IO_INCLUDE_DIR})
+include_directories(${CAN_INCLUDE_DIR})
+include_directories(${FILE_IO_INCLUDE_DIR})
 
-#   add_executable(main_component ${SOURCES} ${CAN_SOURCES})
+add_executable(main_component ${SOURCES} ${CAN_SOURCES})
 
-#   add
 
-#
+add_dependencies(main_component generate_sources_from_json) # it tells to cmake to build "generate_sorrces.." before "main_component"
+
+target_link_libraries(main_component file_io_lib)

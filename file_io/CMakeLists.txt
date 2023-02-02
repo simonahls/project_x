@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 3.10)
 project(fileio)
 
 
+#tells cmake to search for header files in lib/include folder.
 include_directories(lib/include)
+set (FILE_IO_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib/include PARENT_SCOPE)
 
 set(SourcesLib lib/src/file_io.cpp)
 set(SourcesApp app/src/main.cpp)
