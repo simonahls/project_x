@@ -1,1 +1,1 @@
-korv
+get humidity 50
