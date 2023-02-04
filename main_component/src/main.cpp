@@ -26,46 +26,48 @@ int main(int argc, char *argv[])
     // In this for loop i get access to one string at a time in the vector.
     for (auto i : whole_file)
     {
-        // std::cout << "start" << std::endl;
-        std::cout << i << std::endl;
-        // std::cout << "end of loop" << std::endl;
         if (i.substr(0, 3) == set)
         {
-
-            //  std::cout << "Set dectected init set function....\nDone!\n"
-            //          << std::endl;
-            // need to know what function to call next set humidety or temperature
             if (i.substr(4, 3) == humidity)
             {
-                std::cout << "Set dectected, humidety dectected init humidety set_function....\nDone!" << std::endl;
+                std::cout << "Set dectected, humidety dectected init humidety set_function.... Done!" << std::endl;
                 auto value_hum = i.substr(13, (i.length() - 14));
                 std::cout << value_hum << "<---printing value!" << std::endl;
             }
-            if (i.substr(4, 3) == temperature)
+            else if (i.substr(4, 3) == temperature)
             {
-
-                std::cout << "Set dectected, temperature dectected init temperature set_function....\nDone!" << std::endl;
+                std::cout << "Set dectected, temperature dectected init temperature set_function.... Done!" << std::endl;
                 auto value_temp = i.substr(16, (i.length() - 17));
                 std::cout << value_temp << "<---printing value!" << std::endl;
+            }
+            else
+            {
+                // throw error code.
             }
         }
         else if (i.substr(0, 3) == get)
         {
 
-            // std::cout << "get dectected init get function....\nDone!\n"
-            //           << std::endl;
             if (i.substr(4, 3) == humidity)
             {
-                std::cout << "get dectected,humidety dectected init get_humidety function....\nDone!" << std::endl;
+                std::cout << "get dectected,humidety dectected init get_humidety function.... Done!" << std::endl;
                 auto value_hum = i.substr(13, (i.length() - 14));
                 std::cout << value_hum << "<---printing value!" << std::endl;
             }
-            if (i.substr(4, 3) == temperature)
+            else if (i.substr(4, 3) == temperature)
             {
-                std::cout << "get dectected,temperature dectected init get_temperature function....\nDone!" << std::endl;
+                std::cout << "get dectected,temperature dectected init get_temperature function.... Done!" << std::endl;
                 auto value_temp = i.substr(16, (i.length() - 17));
                 std::cout << value_temp << "<---printing value!" << std::endl;
             }
+            else
+            {
+                // throw error code.
+            }
+        }
+        else
+        {
+            // throw error code
         }
     }
 
