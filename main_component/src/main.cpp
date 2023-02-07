@@ -2,74 +2,132 @@
 #include "FileIO.h"
 #include <string>
 #include <can_messages/CAN_min_signals.h>
+#include <map>
 
 // SOME EXPERIMENTS FOR READING AND WRITING TO OUTPUT.......
 // Run command ./main_component ../../main_component/src/input_file.txt
 
 int main(int argc, char *argv[])
 {
-    std::string set{"set"};
-    std::string get{"get"};
-    std::string humidity{"hum"};
-    std::string temperature{"tem"};
-    FileIO Fileioobj;
     CAN_min_signals can;
-
-    // can.set_humidity(10.5);
-    // std::cout << can.set_humidity(10.5) << std::endl;
-
-    // This fucntion returns a line of string.
+    FileIO Fileioobj;
+    std::string array_func[] = {"set", "get"};
+    std::string array_name[] = {"humidety", "temperature"};
+    // std::string set{"set"};
+    // std::string get{"get"};
+    // std::string humidity{"hum"};
+    // std::string temperature{"tem"};
+    std::string output_string{};
+    bool flag{true};
 
     auto whole_file{Fileioobj.readLines(argv[1])};
     auto korv{Fileioobj.readLine(argv[1])};
 
-    // In this for loop i get access to one string at a time in the vector.
-    for (auto i : whole_file)
+    for (std::string string : whole_file)
     {
-        if (i.substr(0, 3) == set)
-        {
-            if (i.substr(4, 3) == humidity)
-            {
-                std::cout << "Set dectected, humidety dectected init humidety set_function.... Done!" << std::endl;
-                auto value_hum = i.substr(13, (i.length() - 14));
-                std::cout << value_hum << "<---printing value!" << std::endl;
-            }
-            else if (i.substr(4, 3) == temperature)
-            {
-                std::cout << "Set dectected, temperature dectected init temperature set_function.... Done!" << std::endl;
-                auto value_temp = i.substr(16, (i.length() - 17));
-                std::cout << value_temp << "<---printing value!" << std::endl;
-            }
-            else
-            {
-                // throw error code.
-            }
-        }
-        else if (i.substr(0, 3) == get)
-        {
+        int counter{0};
+        size_t position_of_value{0};
+        std::string value{};
 
-            if (i.substr(4, 3) == humidity)
-            {
-                std::cout << "get dectected,humidety dectected init get_humidety function.... Done!" << std::endl;
-                auto value_hum = i.substr(13, (i.length() - 14));
-                std::cout << value_hum << "<---printing value!" << std::endl;
-            }
-            else if (i.substr(4, 3) == temperature)
-            {
-                std::cout << "get dectected,temperature dectected init get_temperature function.... Done!" << std::endl;
-                auto value_temp = i.substr(16, (i.length() - 17));
-                std::cout << value_temp << "<---printing value!" << std::endl;
-            }
-            else
-            {
-                // throw error code.
-            }
-        }
-        else
+        for (int i = 0; i < sizeof(array_func) / sizeof(array_func[0]); i++)
         {
-            // throw error code
+            for (int j = 0; j < sizeof(array_name) / sizeof(array_name[0]); j++)
+            {
+                counter++;
+                if (string.find(array_func[i]) != std::string::npos && string.find(array_name[j]) != std::string::npos)
+                {
+
+                    position_of_value = string.find(array_name[j]) + array_name[j].length() + 1;
+                    value = string.substr(position_of_value, string.length() - position_of_value);
+                    std::cout << array_func[i] << " " << array_name[j] << " " << value << std::endl;
+
+                    if (flag == true)
+                    {
+                        output_string = "{\n\t[\n";
+                    }
+                    flag = false;
+                    switch (counter)
+                    {
+                    case 1:
+                        output_string += "\t\t";
+                        output_string += can.set_humidity(std::stoi(value));
+                        break;
+                    case 2:
+                        output_string += "\t\t";
+                        output_string += can.set_temperature(std::stof(value));
+                        break;
+                    case 4:
+                        output_string += "\t\t";
+                        output_string += can.get_temperature();
+                        break;
+                    case 3:
+                        output_string += "\t\t";
+                        output_string += can.get_humidity();
+                        break;
+                    default:
+                        break;
+                    }
+
+                    output_string += ",";
+                    output_string += "\n";
+                    break;
+                }
+            }
         }
+
+        counter = 0;
+
+        // if (string.substr(0, 3) == set)
+        // {
+
+        //     // first we need the
+        //     // delimiter will be " " i want the index of that one and send it in a for loop to itterate over the string
+
+        //     if (string.substr(4, 3) == humidity)
+        //     {
+        //         std::cout << "Set dectected, humidety dectected init humidety set_function.... Done!" << std::endl;
+        //         auto value_hum = string.substr(13, (string.length() - 14));
+        //         std::cout << value_hum << "<---printing value!" << std::endl;
+        //     }
+        //     else if (string.substr(4, 3) == temperature)
+        //     {
+        //         std::cout << "Set dectected, temperature dectected init temperature set_function.... Done!" << std::endl;
+        //         auto value_temp = string.substr(16, (string.length() - 17));
+        //         std::cout << value_temp << "<---printing value!" << std::endl;
+        //     }
+        //     else
+        //     {
+        //         // throw error code.
+        //     }
+        // }
+        // else if (string.substr(0, 3) == get)
+        // {
+
+        //     if (string.substr(4, 3) == humidity)
+        //     {
+        //         std::cout << "get dectected,humidety dectected init get_humidety function.... Done!" << std::endl;
+        //         auto value_hum = string.substr(13, (string.length() - 14));
+        //         std::cout << value_hum << "<---printing value!" << std::endl;
+        //     }
+        //     else if (string.substr(4, 3) == temperature)
+        //     {
+        //         std::cout << "get dectected,temperature dectected init get_temperature function.... Done!" << std::endl;
+        //         auto value_temp = string.substr(16, (string.length() - 17));
+        //         std::cout << value_temp << "<---printing value!" << std::endl;
+        //     }
+        //     else
+        //     {
+        //         // throw error code.
+        //     }
+        // }
+        // else
+        // {
+        //     // throw error code
+        // }
     }
+
+    output_string += "\t]\n}";
+    std::cout << output_string << std::endl;
 
     // extract one line at a time then next one with for loop.
     // can i return how many lines a file contains(do i need to know)

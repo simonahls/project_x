@@ -53,6 +53,7 @@ void FileIO::writeLine(const std::string &fileName, const std::string &line)
     // open the file
     file << line << std::endl;
     // write to the file
+    file.close();
 }
 
 // Write a vector of lines to a file
@@ -65,4 +66,5 @@ void FileIO::writeLines(const std::string &fileName, const std::vector<std::stri
         file << line << std::endl;
     }
     // write to file for each line in lines.
+    file.close();
 }

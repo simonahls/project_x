@@ -6,3 +6,4 @@ can_messages/output
 can_messages/build
 build
 output.txt
+main_component/src/maincopy.cpp

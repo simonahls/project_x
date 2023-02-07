@@ -1,3 +1,11 @@
-set humidety 37.566
-set temperature 50000
-get humidety 80%
+get humidety 37
+set temperature 50.55
+set humidety 85
+get temperature 800
+get temperature 800
+set humidety 85
+get temperature 800
+get temperature 800
+set humidety 85
+get volume
+set stop_signal_light enabled

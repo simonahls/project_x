@@ -25,8 +25,8 @@ return sstream.str();
 }
 std::string CAN_file_name::get_sub_value_1_0() {
 std::stringstream sstream;
-sstream << "{\"ID\": " << (int)m_sub_value_1_0GetMsgId 
-<< ", \"sub_name_1_2\":0 " 
+sstream << "{\"ID\": " << m_sub_value_1_0GetMsgId
+<< ", \"sub_name_1_2\":0 "
 << ", \"value\": \"\" }";
 return sstream.str();
 }
