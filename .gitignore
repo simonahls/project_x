@@ -7,3 +7,5 @@ can_messages/build
 build
 output.txt
 main_component/src/maincopy.cpp
+can_messages/script copy.py
+

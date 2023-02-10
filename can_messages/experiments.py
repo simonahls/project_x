@@ -140,26 +140,4 @@ with open("output_source.txt", "w") as output_file:
 
 def function_to_replace_data_from_tag_names():
 
-    main_key_name_0 = function_to_get_value_from_json(0, "id", 0)
-    main_key_name_1 = function_to_get_value_from_json(0, "signals", 0)
-    main_key_value_0 = function_to_get_value_from_json(0, "id", 0)
-    main_key_value_1 = function_to_get_value_from_json(0, "id", 0)
-    sub_name_0_0 = function_to_get_value_from_json(0, "signals", 0)
-    sub_name_0_1 = function_to_get_value_from_json(0, "signals", 1)
-    sub_name_0_2 = function_to_get_value_from_json(0, "signals", 2)
-    sub_name_0_3 = function_to_get_value_from_json(0, "signals", 3)
-    sub_value_0_0 = function_to_get_value_from_json(
-        "length", "signals", temperature_id)
-    sub_value_0_1 = function_to_get_value_from_json(0, "signals", 3)
-    sub_value_0_2 = function_to_get_value_from_json(0, "signals", 3)
-    sub_value_0_3 = function_to_get_value_from_json(0, "signals", 3)
-    sub_name_1_0 = function_to_get_value_from_json(0, "signals", 3)
-    sub_name_1_1 = function_to_get_value_from_json(0, "signals", 3)
-    sub_name_1_2 = function_to_get_value_from_json(0, "signals", 3)
-    sub_name_1_3 = function_to_get_value_from_json(0, "signals", 3)
-    sub_value_1_0 = function_to_get_value_from_json(0, "signals", 3)
-    sub_value_1_1 = function_to_get_value_from_json(0, "signals", 3)
-    sub_value_1_2 = function_to_get_value_from_json(0, "signals", 3)
-    sub_value_1_3 = function_to_get_value_from_json(0, "signals", 3)
-
     print("----------")
