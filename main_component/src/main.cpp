@@ -1,14 +1,14 @@
 #include <iostream>
 #include "FileIO.h"
 #include <string>
-#include <can_messages/CAN_min_signals.h>
+#include <can_messages/CAN_signals_biglist.h>
 #define FIND_MATCH string.find(array_func[i]) != std::string::npos &&string.find(array_name[j]) != std::string::npos
 
 // Run command ./main_component ../../main_component/src/input_file.txt
 
 int main(int argc, char *argv[])
 {
-    CAN_min_signals can;
+    CAN_signals_biglist can;
     FileIO Fileioobj;
 
     // here we store the values we want to search for if they match with any functions.

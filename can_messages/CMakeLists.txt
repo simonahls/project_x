@@ -8,7 +8,7 @@ execute_process(
 set (CAN_INCLUDE_DIR
             ${CMAKE_CURRENT_SOURCE_DIR}/output/include PARENT_SCOPE)
 set (CAN_SOURCES
-            ${CMAKE_CURRENT_SOURCE_DIR}/output/src/CAN_min_signals.cpp PARENT_SCOPE)
+            ${CMAKE_CURRENT_SOURCE_DIR}/output/src/CAN_signals_biglist.cpp PARENT_SCOPE)
 
 #add_custom_target
 

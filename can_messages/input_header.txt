@@ -16,11 +16,12 @@ class CAN_file_name {
     /*
     get sub_value_1_3
     */
-    std::string get_humidity();
+    std::string get_sub_1_0();
     /*
     set sub_value_1_3
     */
     std::string set_sub_value_1_0(sub_value_1_1 newValue);
+    
 
 private:
     sub_value_1_1 m_startMsgId;

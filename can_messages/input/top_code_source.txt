@@ -1,0 +1,4 @@
+#include "can_messages/CAN_file_name.h"
+#include <sstream>
+CAN_file_name::CAN_file_name() {
+m_startMsgId = main_key_value_0;
