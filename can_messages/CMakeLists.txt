@@ -10,6 +10,4 @@ set (CAN_INCLUDE_DIR
 set (CAN_SOURCES
             ${CMAKE_CURRENT_SOURCE_DIR}/output/src/CAN_signals_biglist.cpp PARENT_SCOPE)
 
-#add_custom_target
-
 

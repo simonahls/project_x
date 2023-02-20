@@ -1,5 +1,6 @@
 import json
 import os
+from os import path
 
 # variable to store the name and path to the json input inputfile.
 file_path = "signals_biglist.json"
@@ -43,27 +44,12 @@ def generate_functions_from_template():
 
     return output_data
 
-    # for i, signal in enumerate(generate_signals):
-    #     for j, (key, value) in enumerate(signal.items()):
-    #         # place for how many signals in generate_Signals functions to replace.
 
-    #         input_data = input_data.replace("sub_value_" + str(i) +
-    #                                         "_" + str(j), str(value))
-    #         input_data = input_data.replace("sub_name_" + str(i) +
-    #                                         "_" + str(j), key)
-
-    # open template and write for how many key value pairs in signals.
-
-    # from template input txt generate functions from signal name and value.
-    # we get how many signals in i
-    # we can get the name (key) and the value from value.
-
-    # input_data = input_data.replace("sub_value_" + str(i) +
-    #                             "_" + str(j), str(value))
-    # input_data = input_data.replace("sub_name_" + str(i) +
-    #                             "_" + str(j), key)
-
-    # i want to generate the input source dependent on how many signals there are in the signals json.
+def generate_typedef_from_template():
+    with open("input/typedef_header.txt", "r") as input_file:
+        input_data = input_file.read()
+        input_file.close()
+        return input_data
 
 
 def generate_comment_header_file():
@@ -86,6 +72,128 @@ def generate_comment_header_file():
         return ""
 
     return output_data
+
+
+def generate_vector_header_no_arg():
+
+    top_data = "std::vector<func0> funcs0 = {"
+    input_data_get = "&CAN_signals_biglist::get_sub_value_0_0"
+    input_mod_data = ""
+
+    output_data = ""
+
+    for i in range(signals_in_json()):
+        # need to change the input data to reflect to 0_0 to 11_0 or something
+        input_mod_data = input_data_get.replace(
+            "sub_value_0", "sub_value_{}".format(i))
+        input_mod_data = input_mod_data.replace(
+            "sub_name_0", "sub_name_{}".format(i))
+        input_mod_data += ","
+        output_data += input_mod_data
+    top_data += output_data
+    top_data = top_data[:-1]
+    top_data += "};"
+    top_data += "\n"
+
+    # mod_string += "\n"
+    # mod_string += "std::vector<func2> funcs2 = {"
+    # mod_string += "\n"
+    # mod_string += "std::vector<func3> funcs3 = {"
+    # mod_string += "\n"
+    # mod_string += "std::vector<func4> funcs4 = {"
+    return top_data
+
+
+def generate_vector_header_uint8_t():
+    top_data = "std::vector<func1> funcs1 = {"
+    input_data_set = "&CAN_signals_biglist::set_sub_value_0_0"
+    output_data = ""
+    json_dict = import_json_file_function(file_path)
+    signals = json_dict['signals']
+
+    for i, signal in enumerate(signals):
+        for j, (key, value) in enumerate(signal.items()):
+            if (value == "uint8_t"):
+                input_mod_data = input_data_set.replace(
+                    "sub_value_0", "sub_value_{}".format(i))
+                input_mod_data += ","
+                output_data += input_mod_data
+
+    top_data += output_data
+    top_data = top_data[:-1]
+    top_data += "};"
+    top_data += "\n"
+
+    return top_data
+
+
+def generate_vector_header_uint16_t():
+    top_data = "std::vector<func2> funcs2 = {"
+    input_data_set = "&CAN_signals_biglist::set_sub_value_0_0"
+    output_data = ""
+    json_dict = import_json_file_function(file_path)
+    signals = json_dict['signals']
+
+    for i, signal in enumerate(signals):
+        for j, (key, value) in enumerate(signal.items()):
+            if (value == "uint16_t"):
+                input_mod_data = input_data_set.replace(
+                    "sub_value_0", "sub_value_{}".format(i))
+                input_mod_data += ","
+                output_data += input_mod_data
+
+    top_data += output_data
+    top_data = top_data[:-1]
+    top_data += "};"
+    top_data += "\n"
+
+    return top_data
+
+
+def generate_vector_header_float():
+    top_data = "std::vector<func3> funcs3 = {"
+    input_data_set = "&CAN_signals_biglist::set_sub_value_0_0"
+    output_data = ""
+    json_dict = import_json_file_function(file_path)
+    signals = json_dict['signals']
+
+    for i, signal in enumerate(signals):
+        for j, (key, value) in enumerate(signal.items()):
+            if (value == "float"):
+                input_mod_data = input_data_set.replace(
+                    "sub_value_0", "sub_value_{}".format(i))
+                input_mod_data += ","
+                output_data += input_mod_data
+
+    top_data += output_data
+    top_data = top_data[:-1]
+    top_data += "};"
+    top_data += "\n"
+
+    return top_data
+
+
+def generate_vector_header_bool():
+    top_data = "std::vector<func4> funcs4 = {"
+    input_data_set = "&CAN_signals_biglist::set_sub_value_0_0"
+    output_data = ""
+    json_dict = import_json_file_function(file_path)
+    signals = json_dict['signals']
+
+    for i, signal in enumerate(signals):
+        for j, (key, value) in enumerate(signal.items()):
+            if (value == "bool"):
+                input_mod_data = input_data_set.replace(
+                    "sub_value_0", "sub_value_{}".format(i))
+                input_mod_data += ","
+                output_data += input_mod_data
+
+    top_data += output_data
+    top_data = top_data[:-1]
+    top_data += "};"
+    top_data += "\n"
+
+    return top_data
 
 
 def generate_id_source_function():
@@ -173,6 +281,15 @@ def function_write_source_file():
 def function_write_header_file():
     header_file = read_top_code_header_file()
     header_file += generate_comment_header_file()
+    header_file += "\n"
+    header_file += generate_typedef_from_template()
+    header_file += "\n"
+    header_file += generate_vector_header_no_arg()
+    header_file += generate_vector_header_uint8_t()
+    header_file += generate_vector_header_uint16_t()
+    header_file += generate_vector_header_float()
+    header_file += generate_vector_header_bool()
+    header_file += "\n"
     header_file += "private:\n"
     header_file += "\tuint8_t m_startMsgId;\n"
     header_file += generate_id_header()
