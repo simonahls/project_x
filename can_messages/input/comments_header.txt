@@ -1,0 +1,8 @@
+    /*
+    get sub_value_0_3
+    */
+    std::string get_sub_value_0_0();
+    /*
+    set sub_value_0_3
+    */
+    std::string set_sub_value_0_0(sub_value_0_1 newValue);

@@ -1,0 +1,2 @@
+m_sub_value_0_0GetMsgId = m_startMsgId + id_value ;
+m_sub_value_0_0SetMsgId = m_startMsgId + id_value + 1;
