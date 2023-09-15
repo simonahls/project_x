@@ -1,3 +1,10 @@
+
+project for CAN Signal generation with python.
+
+
+
+
+
 # How to build the code
 1. Create a dir build
 2. cd build
