@@ -1,0 +1,5 @@
+    using func0 = std::string (CAN_signals_biglist::*)();
+    using func1 = std::string (CAN_signals_biglist::*)(uint8_t);
+    using func2 = std::string (CAN_signals_biglist::*)(uint16_t);
+    using func3 = std::string (CAN_signals_biglist::*)(float);
+    using func4 = std::string (CAN_signals_biglist::*)(bool);
