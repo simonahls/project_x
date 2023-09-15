@@ -1,5 +1,5 @@
 
-project for CAN Signal generation with python.
+project for CAN Signal generation with python using template io.
 
 
 
