@@ -1,4 +1,4 @@
 #projext_x
 
-Project to gnererate c++ code from templates using python.
+Project to generate c++ code from templates using python.
 
